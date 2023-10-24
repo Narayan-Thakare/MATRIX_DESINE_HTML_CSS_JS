@@ -19,7 +19,9 @@ body {margin: 0; overflow: hidden; cursor: pointer;}
 
 
 
-var Chars = ["*","X","+","-","1","0","1","@","六"];
+var Chars = ["六","N","A","R","A","Y","A","N"];
+// var Chars = ["*","X","+","-","1","0","1","@","六","N","A","R","A","Y","A","N"];
+
 var Cells = [];	
 var tileSize = 16;
 var dropspeed = 8;
@@ -102,6 +104,29 @@ function mousePressed() {
   }
   
 }
+
+
+// Inside the Matrix class's update function
+this.update = function() {
+    var thecol = round(random(0, 10));
+    var thebri = 0;
+   
+    if (thecol == 10) {
+        thecol = 0;
+        thebri = 100;
+    } else {
+        myHue += 10; // Increment the hue for color variation
+        thecol = 100;
+        thebri = 50;
+    }
+    
+    fill(myHue, thecol, thebri, .7);
+    textSize(14);
+    textFont('Verdana');
+    var thechar = round(random(0, 8));
+    text((Chars[thechar]), this.x, this.y);
+}
+
 
     </script>
 </body>
